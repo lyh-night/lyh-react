@@ -11,31 +11,64 @@
     "build:test": "cross-env NODE_ENV=production BASE_ENV=test webpack -c ./webpack/webpack.prod.js",
     "build:pre": "cross-env NODE_ENV=production BASE_ENV=pre webpack -c ./webpack/webpack.prod.js",
     "build:prod": "cross-env NODE_ENV=production BASE_ENV=production webpack -c ./webpack/webpack.prod.js",
-    "build:analy": "cross-env NODE_ENV=production BASE_ENV=production webpack -c ./webpack/webpack.analy.js"
+    "build:analy": "cross-env NODE_ENV=production BASE_ENV=production webpack -c ./webpack/webpack.analy.js",
+    "eslint": "eslint --max-warnings=0",
+    "pre-check": "npx lint-staged",
+    "prepare": "husky",
+    "commit": "git-cz"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-check"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/plugin-proposal-decorators": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.17.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
+    "commitizen": "^4.3.1",
     "copy-webpack-plugin": "^12.0.2",
     "core-js": "^3.39.0",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
+    "cz-customizable": "^7.4.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.3",
+    "globals": "^15.14.0",
     "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
     "less": "^4.2.1",
     "less-loader": "^12.2.0",
+    "lint-staged": "^15.3.0",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "^8.1.1",
     "react-refresh": "^0.16.0",
@@ -43,14 +76,11 @@
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.11",
     "thread-loader": "^4.0.4",
+    "typescript-eslint": "^8.18.2",
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0",
     "webpack-merge": "^6.0.1"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
   }
 }
