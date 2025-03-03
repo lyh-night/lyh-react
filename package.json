@@ -49,6 +49,7 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.17.0",
+    "@nuxt/friendly-errors-webpack-plugin": "^2.6.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
